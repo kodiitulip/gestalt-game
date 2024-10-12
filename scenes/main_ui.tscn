@@ -1,0 +1,146 @@
+[gd_scene load_steps=17 format=3 uid="uid://cqcok5hmd8of8"]
+
+[ext_resource type="Script" path="res://scenes/main_ui.gd" id="1_6dq4x"]
+[ext_resource type="PackedScene" uid="uid://e4m10gih4tne" path="res://scenes/minigames/components/minigame_button.tscn" id="1_bi8by"]
+[ext_resource type="Theme" uid="uid://cob1et3frify3" path="res://assets/main_theme.tres" id="1_lx4am"]
+[ext_resource type="Texture2D" uid="uid://dil48c4a05ntd" path="res://logo.svg" id="3_8w00c"]
+[ext_resource type="Texture2D" uid="uid://ceih007mo4vt4" path="res://game.svg" id="4_dauto"]
+[ext_resource type="PackedScene" uid="uid://dxw3cr44qw8xj" path="res://scenes/minigames/components/info_button.tscn" id="4_vptgg"]
+[ext_resource type="PackedScene" uid="uid://cmky87yvkh3br" path="res://scenes/gestalt_rules/gestalt_rules.tscn" id="7_n1myt"]
+[ext_resource type="Script" path="res://scenes/minigames/components/minigame_button.gd" id="7_vn542"]
+[ext_resource type="PackedScene" uid="uid://cs2vhsn3vfyi2" path="res://scenes/minigames/continue/continue.tscn" id="7_xwkao"]
+[ext_resource type="PackedScene" uid="uid://cp38ai31bidtj" path="res://scenes/minigames/tangram/tangram.tscn" id="8_yoyf8"]
+[ext_resource type="PackedScene" uid="uid://sb6gsgecjh44" path="res://scenes/minigames/separe/separe.tscn" id="10_vijxt"]
+[ext_resource type="Script" path="res://scripts/DialogLine.gd" id="14_qmo43"]
+
+[sub_resource type="Resource" id="Resource_14o4q"]
+script = ExtResource("14_qmo43")
+line = "Oi! Prazer eu me chamo Greg!"
+face = 1
+
+[sub_resource type="Resource" id="Resource_wfsuk"]
+script = ExtResource("14_qmo43")
+line = "Hoje eu serei seu guia na nossa jornada pelas regras da Gestalt.
+Para começar, dê uma olhada nas regras da Gestalt
+"
+face = 2
+
+[sub_resource type="Resource" id="Resource_xp6a5"]
+script = ExtResource("14_qmo43")
+line = "Em seguida, você pode escolher uma das interações para ver mais sobre as regras em ação."
+face = 0
+
+[sub_resource type="Resource" id="Resource_cx1tb"]
+script = ExtResource("14_qmo43")
+line = "Eu sempre estarei com você em cada cena.
+Caso queira me ouvir novamente basta clicar no botão superior direito na tela!"
+face = 1
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_6dq4x")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+texture_filter = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lx4am")
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="MainMenu" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Title" type="TextureRect" parent="PanelContainer/CenterContainer/MainMenu"]
+texture_filter = 2
+custom_minimum_size = Vector2(600, 240)
+layout_mode = 2
+texture = ExtResource("3_8w00c")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/CenterContainer/MainMenu/Title"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.401667
+anchor_top = 0.694737
+anchor_right = 1.07532
+anchor_bottom = 0.968421
+texture = ExtResource("4_dauto")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="RegrasGestalt" type="AspectRatioContainer" parent="PanelContainer/CenterContainer/MainMenu"]
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_lx4am")
+ratio = 10.0
+script = ExtResource("7_vn542")
+minigame_scene = ExtResource("7_n1myt")
+tooltip = "Regras da Gestalt"
+
+[node name="Button" type="Button" parent="PanelContainer/CenterContainer/MainMenu/RegrasGestalt"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 30
+text = "Regras da Gestalt"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterContainer/MainMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="GridContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer/MainMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Tangram" parent="PanelContainer/CenterContainer/MainMenu/MarginContainer/GridContainer" instance=ExtResource("1_bi8by")]
+layout_mode = 2
+minigame_scene = ExtResource("8_yoyf8")
+tooltip = "Tangram"
+
+[node name="Continue" parent="PanelContainer/CenterContainer/MainMenu/MarginContainer/GridContainer" instance=ExtResource("1_bi8by")]
+layout_mode = 2
+minigame_scene = ExtResource("7_xwkao")
+tooltip = "Continue"
+
+[node name="Separe" parent="PanelContainer/CenterContainer/MainMenu/MarginContainer/GridContainer" instance=ExtResource("1_bi8by")]
+layout_mode = 2
+minigame_scene = ExtResource("10_vijxt")
+tooltip = "Separe"
+
+[node name="InfoButton" parent="." instance=ExtResource("4_vptgg")]
+dialog = Array[ExtResource("14_qmo43")]([SubResource("Resource_14o4q"), SubResource("Resource_wfsuk"), SubResource("Resource_xp6a5"), SubResource("Resource_cx1tb")])
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.742969
+anchor_top = 0.791667
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_lx4am")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Créditos: Equipe ViaDoEu
+[ul]Kodie Freitas
+Shayanne Soares
+Maria Eduarda Cavalcante
+Ronald Leocadio[/ul]"

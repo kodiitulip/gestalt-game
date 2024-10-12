@@ -1,0 +1,122 @@
+[gd_scene load_steps=11 format=3 uid="uid://dgqdsp5tcc1wy"]
+
+[ext_resource type="Script" path="res://scenes/managers/dialog_system.gd" id="1_876m5"]
+[ext_resource type="Texture2D" uid="uid://dxr1w7rf1o76r" path="res://assets/gera.png" id="1_x2680"]
+[ext_resource type="Texture2D" uid="uid://bc43wbupa1bjf" path="res://assets/next-button.png" id="2_eehys"]
+[ext_resource type="Theme" uid="uid://cob1et3frify3" path="res://assets/main_theme.tres" id="2_mfkri"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj3t5"]
+atlas = ExtResource("1_x2680")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6llas"]
+atlas = ExtResource("2_eehys")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj1du"]
+atlas = ExtResource("2_eehys")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="Animation" id="Animation_8rav5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogBox/MarginContainer/RichTextLabel:visible_ratio")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1ugml"]
+resource_name = "typewriter"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogBox/MarginContainer/RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gas4u"]
+_data = {
+"RESET": SubResource("Animation_8rav5"),
+"typewriter": SubResource("Animation_1ugml")
+}
+
+[node name="DialogSystem" type="CanvasLayer"]
+layer = 3
+script = ExtResource("1_876m5")
+
+[node name="DialogBox" type="PanelContainer" parent="."]
+anchors_preset = -1
+anchor_top = 0.6875
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_mfkri")
+theme_type_variation = &"DialogBox"
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox/MarginContainer"]
+texture_filter = 2
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.764844
+anchor_top = 0.305556
+anchor_right = 1.01484
+anchor_bottom = 0.75
+texture = SubResource("AtlasTexture_mj3t5")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchors_preset = -1
+anchor_left = 0.934375
+anchor_top = 0.881944
+anchor_right = 0.984375
+anchor_bottom = 0.970833
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("AtlasTexture_6llas")
+texture_pressed = SubResource("AtlasTexture_qj1du")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gas4u")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true

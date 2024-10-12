@@ -1,0 +1,85 @@
+[gd_scene load_steps=15 format=3 uid="uid://cmky87yvkh3br"]
+
+[ext_resource type="Script" path="res://scenes/gestalt_rules/gestalt_rules.gd" id="1_g6v3e"]
+[ext_resource type="PackedScene" uid="uid://bsi5o2djnouw3" path="res://scenes/gestalt_rules/rules/semelhanca.tscn" id="2_anc0c"]
+[ext_resource type="PackedScene" uid="uid://qj1orfu8mmd0" path="res://scenes/minigames/components/main_menu_button.tscn" id="2_ghq2h"]
+[ext_resource type="PackedScene" uid="uid://dxw3cr44qw8xj" path="res://scenes/minigames/components/info_button.tscn" id="3_2mbum"]
+[ext_resource type="PackedScene" uid="uid://cd87g6u55x8im" path="res://scenes/gestalt_rules/rules/proximidade.tscn" id="3_pig1h"]
+[ext_resource type="Script" path="res://scripts/DialogLine.gd" id="4_61c00"]
+[ext_resource type="PackedScene" uid="uid://cpvaajixfcv2p" path="res://scenes/gestalt_rules/rules/continuidade.tscn" id="7_rnfku"]
+[ext_resource type="PackedScene" uid="uid://cpjqrx62eekty" path="res://scenes/gestalt_rules/rules/pregnancia.tscn" id="8_wd2m4"]
+[ext_resource type="PackedScene" uid="uid://dqovhy50r8683" path="res://scenes/gestalt_rules/rules/fechamento.tscn" id="9_h7s3w"]
+[ext_resource type="PackedScene" uid="uid://dr5dki1lqx6kc" path="res://scenes/gestalt_rules/rules/unidade.tscn" id="10_yuiac"]
+[ext_resource type="PackedScene" uid="uid://bpjxxod4lo2n0" path="res://scenes/gestalt_rules/rules/unificacao.tscn" id="11_77soc"]
+[ext_resource type="PackedScene" uid="uid://dnghhi5dmpumi" path="res://scenes/gestalt_rules/rules/segregacao.tscn" id="12_3gk6n"]
+[ext_resource type="PackedScene" uid="uid://bi0rl356yids0" path="res://scenes/gestalt_rules/rules/start.tscn" id="13_jtk2t"]
+
+[sub_resource type="Resource" id="Resource_ct4n4"]
+script = ExtResource("4_61c00")
+line = "Esse lugar possui explicações rápidas das leis da Gestalt!"
+face = 1
+
+[node name="GestaltRules" type="Node2D"]
+texture_filter = 2
+script = ExtResource("1_g6v3e")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(2560, 1440)
+offset_right = 2560.0
+offset_bottom = 1440.0
+color = Color(0.90625, 0.90625, 0.90625, 1)
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1280, 720)
+limit_left = 0
+limit_top = 0
+limit_right = 2560
+limit_bottom = 1440
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MiniGameButton" parent="CanvasLayer" instance=ExtResource("2_ghq2h")]
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="InfoButton" parent="CanvasLayer" instance=ExtResource("3_2mbum")]
+dialog = Array[ExtResource("4_61c00")]([SubResource("Resource_ct4n4")])
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Semelhanca" parent="." instance=ExtResource("2_anc0c")]
+position = Vector2(771, 212)
+
+[node name="Proximidade" parent="." instance=ExtResource("3_pig1h")]
+position = Vector2(1280, 129)
+
+[node name="Continuidade" parent="." instance=ExtResource("7_rnfku")]
+position = Vector2(1784, 166)
+
+[node name="Pregnancia" parent="." instance=ExtResource("8_wd2m4")]
+position = Vector2(622, 597)
+
+[node name="Fechamento" parent="." instance=ExtResource("9_h7s3w")]
+position = Vector2(1975, 553)
+
+[node name="Unidade" parent="." instance=ExtResource("10_yuiac")]
+position = Vector2(817, 1049)
+
+[node name="Unificacao" parent="." instance=ExtResource("11_77soc")]
+position = Vector2(1280, 1074)
+
+[node name="Segregacao" parent="." instance=ExtResource("12_3gk6n")]
+position = Vector2(1822, 1036)
+
+[node name="Start" parent="." instance=ExtResource("13_jtk2t")]
+position = Vector2(1280, 720)

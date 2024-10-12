@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxw3cr44qw8xj"]
+
+[ext_resource type="Script" path="res://scenes/minigames/components/info_button.gd" id="2_c6haw"]
+[ext_resource type="Texture2D" uid="uid://dp3vfl78tope" path="res://assets/info-button.png" id="2_lvtly"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in7dn"]
+atlas = ExtResource("2_lvtly")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wpex"]
+atlas = ExtResource("2_lvtly")
+region = Rect2(64, 0, 64, 64)
+
+[node name="InfoButton" type="AspectRatioContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_bottom = 64.0
+grow_horizontal = 0
+script = ExtResource("2_c6haw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="InfoButton" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+tooltip_text = "Informação"
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("AtlasTexture_in7dn")
+texture_pressed = SubResource("AtlasTexture_5wpex")
+stretch_mode = 3
+
+[connection signal="pressed" from="MarginContainer/InfoButton" to="." method="_on_pressed"]

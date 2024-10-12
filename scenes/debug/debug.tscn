@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bstdbjn2slou2"]
+
+[ext_resource type="Script" path="res://scenes/debug/debug.gd" id="1_180lk"]
+
+[node name="Debug" type="Button"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.5
+offset_right = 31.5
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "DEBUG"
+script = ExtResource("1_180lk")

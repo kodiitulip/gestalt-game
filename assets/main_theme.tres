@@ -1,0 +1,100 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cob1et3frify3"]
+
+[ext_resource type="FontFile" uid="uid://b4ta6mq1dhixj" path="res://assets/fonts/bauhaus-93/Bauhaus 93 Regular.ttf" id="1_oftl1"]
+[ext_resource type="FontFile" uid="uid://jn3omust437g" path="res://assets/fonts/bauhaus-93/BAUHS93.ttf" id="2_o4r0f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0si73"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 6.0
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+border_width_bottom = 4
+border_color = Color(0.0520833, 0.0520833, 0.0520833, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jj78r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esc2s"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 8.0
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+border_width_bottom = 6
+border_color = Color(0.0520833, 0.0520833, 0.0520833, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4rvdw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 8.0
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+border_width_bottom = 6
+border_color = Color(0.0520833, 0.0520833, 0.0520833, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1cbg"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 5.0
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+border_width_bottom = 4
+border_color = Color(0.0520833, 0.0520833, 0.0520833, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpkil"]
+content_margin_bottom = 10.0
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+border_width_bottom = 10
+border_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ps4x"]
+bg_color = Color(0.859375, 0.859375, 0.859375, 1)
+border_color = Color(0.932292, 0.991536, 1, 1)
+border_blend = true
+
+[resource]
+Button/colors/font_color = Color(0.859375, 0.859375, 0.859375, 1)
+Button/colors/font_disabled_color = Color(0.858824, 0.858824, 0.858824, 0.678431)
+Button/colors/font_focus_color = Color(0.859375, 0.859375, 0.859375, 1)
+Button/colors/font_hover_color = Color(0.859375, 0.859375, 0.859375, 1)
+Button/colors/font_hover_pressed_color = Color(0.859375, 0.859375, 0.859375, 1)
+Button/colors/font_pressed_color = Color(0.859375, 0.859375, 0.859375, 1)
+Button/fonts/font = ExtResource("1_oftl1")
+Button/styles/disabled = SubResource("StyleBoxFlat_0si73")
+Button/styles/focus = SubResource("StyleBoxEmpty_jj78r")
+Button/styles/hover = SubResource("StyleBoxFlat_esc2s")
+Button/styles/normal = SubResource("StyleBoxFlat_4rvdw")
+Button/styles/pressed = SubResource("StyleBoxFlat_s1cbg")
+DialogBox/base_type = &"PanelContainer"
+DialogBox/styles/panel = SubResource("StyleBoxFlat_lpkil")
+Label/colors/font_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+Label/fonts/font = ExtResource("1_oftl1")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_1ps4x")
+RichTextLabel/fonts/bold_font = ExtResource("2_o4r0f")
+RichTextLabel/fonts/bold_italics_font = ExtResource("2_o4r0f")
+RichTextLabel/fonts/italics_font = ExtResource("2_o4r0f")
+RichTextLabel/fonts/mono_font = ExtResource("2_o4r0f")
+RichTextLabel/fonts/normal_font = ExtResource("2_o4r0f")
+TooltipLabel/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+TooltipLabel/font_sizes/font_size = 30
+TooltipLabel/fonts/font = ExtResource("1_oftl1")

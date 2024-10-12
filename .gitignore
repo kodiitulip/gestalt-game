@@ -1,0 +1,9 @@
+# .aseprite files
+*/*.aseprite
+
+# builds
+.build/
+
+# Godot 4+ specific ignores
+.godot/
+/android/

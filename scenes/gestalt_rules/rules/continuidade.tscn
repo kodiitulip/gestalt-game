@@ -1,0 +1,122 @@
+[gd_scene load_steps=11 format=3 uid="uid://cpvaajixfcv2p"]
+
+[ext_resource type="Theme" uid="uid://cob1et3frify3" path="res://assets/main_theme.tres" id="1_jlyld"]
+[ext_resource type="Texture2D" uid="uid://bsfj0asdqi2cd" path="res://assets/balli.png" id="2_0uavu"]
+[ext_resource type="Texture2D" uid="uid://pjeesupkkc1n" path="res://assets/bolina.png" id="3_mvkpr"]
+[ext_resource type="Script" path="res://scenes/minigames/continue/dashed.gd" id="4_jnbnb"]
+
+[sub_resource type="Curve2D" id="Curve2D_pxqg3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -163, 140, -60.8297, 0.357144, 60.8297, -0.357144, -98, 217, -61.9298, -1.45734, 61.9298, 1.45734, 1, 137, -57.2757, 0, 57.2757, 0, 104, 212, 0, 0, 0, 0, 163, 140)
+}
+point_count = 5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_igoxc"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(-2, -2, 0, 4, 4.00001, 0),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63),
+"format": 34393296913,
+"index_count": 6,
+"index_data": PackedByteArray(3, 0, 0, 0, 1, 0, 1, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 192, 0, 0, 0, 64, 0, 0, 0, 192, 0, 0, 0, 192, 0, 0, 0, 64, 0, 0, 0, 192, 0, 0, 0, 64, 0, 0, 0, 64)
+}]
+
+[sub_resource type="MultiMesh" id="MultiMesh_fjlb3"]
+instance_count = 41
+mesh = SubResource("ArrayMesh_igoxc")
+buffer = PackedFloat32Array(0.155506, -0.987835, 0, -162.364, 0.987835, 0.155506, 0, 145.965, 0.249602, -0.968349, 0, -160.213, 0.968349, 0.249602, 0, 157.766, 0.343615, -0.939111, 0, -156.937, 0.939111, 0.343615, 0, 169.305, 0.455058, -0.890462, 0, -152.46, 0.890462, 0.455058, 0, 180.429, 0.586155, -0.810199, 0, -146.583, 0.810199, 0.586155, 0, 190.877, 0.730266, -0.683163, 0, -139.103, 0.683163, 0.730266, 0, 200.235, 0.864871, -0.501994, 0, -129.942, 0.501994, 0.864871, 0, 207.946, 0.953044, -0.302833, 0, -119.277, 0.302833, 0.953044, 0, 213.385, 0.995536, -0.0943811, 0, -107.676, 0.0943811, 0.995536, 0, 216.345, 0.995853, 0.0909748, 0, -95.7078, -0.0909748, 0.995853, 0, 216.938, 0.941842, 0.336055, 0, -83.8754, -0.336055, 0.941842, 0, 215.125, 0.799257, 0.600989, 0, -72.9742, -0.600989, 0.799257, 0, 210.24, 0.614868, 0.78863, 0, -63.998, -0.78863, 0.614868, 0, 202.35, 0.482583, 0.87585, 0, -57.1045, -0.87585, 0.482583, 0, 192.553, 0.426711, 0.904388, 0, -51.5538, -0.904388, 0.426711, 0, 181.919, 0.446362, 0.894853, 0, -46.426, -0.894853, 0.446362, 0, 171.07, 0.544298, 0.838892, 0, -40.8234, -0.838892, 0.544298, 0, 160.464, 0.713785, 0.700365, 0, -33.8097, -0.700365, 0.713785, 0, 150.755, 0.891467, 0.453086, 0, -24.6608, -0.453086, 0.891467, 0, 143.07, 0.983259, 0.182212, 0, -13.6262, -0.182212, 0.983259, 0, 138.491, 0.999637, -0.0269344, 0, -1.74695, 0.0269344, 0.999637, 0, 136.992, 0.977529, -0.210802, 0, 10.2082, 0.210802, 0.977529, 0, 137.83, 0.899147, -0.437647, 0, 21.7442, 0.437647, 0.899147, 0, 141.03, 0.759563, -0.650433, 0, 32.1677, 0.650433, 0.759563, 0, 146.906, 0.618533, -0.785759, 0, 40.8719, 0.785759, 0.618533, 0, 155.135, 0.528624, -0.848856, 0, 48.0027, 0.848856, 0.528624, 0, 164.776, 0.506763, -0.862085, 0, 54.2353, 0.862085, 0.506763, 0, 175.029, 0.557153, -0.83041, 0, 60.3961, 0.83041, 0.557153, 0, 185.327, 0.679626, -0.733559, 0, 67.3674, 0.733559, 0.679626, 0, 195.084, 0.841513, -0.540236, 0, 75.9813, 0.540236, 0.841513, 0, 203.397, 0.961402, -0.275147, 0, 86.4809, 0.275147, 0.961402, 0, 209.107, 0.998782, -0.0493507, 0, 98.1618, 0.0493507, 0.998782, 0, 211.701, 0.988581, 0.150688, 0, 110.138, -0.150688, 0.988581, 0, 211.679, 0.929893, 0.36783, 0, 121.861, -0.36783, 0.929893, 0, 209.249, 0.811211, 0.584753, 0, 132.669, -0.584753, 0.811211, 0, 204.122, 0.654013, 0.756483, 0, 141.898, -0.756483, 0.654013, 0, 196.507, 0.497486, 0.867472, 0, 149.24, -0.867472, 0.497486, 0, 187.045, 0.361232, 0.932476, 0, 154.79, -0.932476, 0.361232, 0, 176.421, 0.250048, 0.968233, 0, 158.783, -0.968233, 0.250048, 0, 165.114, 0.146333, 0.989235, 0, 161.47, -0.989235, 0.146333, 0, 153.425, 0.0599959, 0.998199, 0, 162.909, -0.998199, 0.0599959, 0, 141.518)
+
+[sub_resource type="Animation" id="Animation_8pbfx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/Item:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.01]
+}
+
+[sub_resource type="Animation" id="Animation_pv5eu"]
+resource_name = "defa"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/Item:progress_ratio")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [0.01, 0.99]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gsgdb"]
+_data = {
+"RESET": SubResource("Animation_8pbfx"),
+"defa": SubResource("Animation_pv5eu")
+}
+
+[node name="Continuidade" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = -77.5
+offset_right = 201.0
+offset_bottom = 77.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_jlyld")
+theme_override_colors/default_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "[center][font_size=40]Continuidade[/font_size]
+[font_size=30]Continuidade é a lei da Gestalt a respeito da fluidez de uma composição."
+fit_content = true
+
+[node name="Anim" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Anim"]
+position = Vector2(0, 29)
+curve = SubResource("Curve2D_pxqg3")
+
+[node name="MultiMeshInstance2D" type="MultiMeshInstance2D" parent="Anim/Path2D"]
+multimesh = SubResource("MultiMesh_fjlb3")
+texture = ExtResource("3_mvkpr")
+script = ExtResource("4_jnbnb")
+distance = 12.0
+
+[node name="Bolina2" type="MeshInstance2D" parent="Anim/Path2D/MultiMeshInstance2D"]
+visible = false
+mesh = SubResource("ArrayMesh_igoxc")
+texture = ExtResource("3_mvkpr")
+
+[node name="Item" type="PathFollow2D" parent="Anim/Path2D"]
+position = Vector2(-162.514, 144.885)
+rotation = 1.4475
+progress = 4.87521
+loop = false
+
+[node name="Balli" type="Sprite2D" parent="Anim/Path2D/Item"]
+texture = ExtResource("2_0uavu")
+
+[node name="Anim" type="AnimationPlayer" parent="Anim"]
+libraries = {
+"": SubResource("AnimationLibrary_gsgdb")
+}
+autoplay = "defa"

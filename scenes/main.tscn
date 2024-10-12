@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://v03eht1axsak"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_6mqna"]
+[ext_resource type="PackedScene" uid="uid://7lp03llo27ur" path="res://scenes/managers/transition.tscn" id="1_fh1x8"]
+[ext_resource type="PackedScene" uid="uid://dgqdsp5tcc1wy" path="res://scenes/managers/dialog_system.tscn" id="2_c0pdb"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_6mqna")
+
+[node name="Transition" parent="." node_paths=PackedStringArray("scene_container") instance=ExtResource("1_fh1x8")]
+scene_container = NodePath("../SceneContainer")
+
+[node name="DialogSystem" parent="." groups=["dialog_manager"] instance=ExtResource("2_c0pdb")]
+visible = false
+
+[node name="SceneContainer" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SceneContainer"]
+
+[node name="ColorRect" type="ColorRect" parent="SceneContainer/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
